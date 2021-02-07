@@ -10,10 +10,9 @@
     "start:server": "nodemon server/server.js",
     "start:client": "cd client && yarn run start",
     "dev": "concurrently \"yarn run start:server\" \"yarn run start:client\"",
-    "seed": "node server/seeders/seed.js",
-    "install": "cd client && yarn i",
+    "install": "cd client && yarn install",
     "build": "cd client && yarn run build",
-    "heroku-postbuild": "yarn run seed && yarn run build"
+    "heroku-postbuild": "yarn run build"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
