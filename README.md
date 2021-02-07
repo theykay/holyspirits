@@ -1,1 +1,1 @@
-# Holy Spirits
+# Holy Spirits :sake: :champagne: :wine_glass: :cocktail: :tropical_drink: :beer: :beers: :clinking_glasses: :tumbler_glass:
