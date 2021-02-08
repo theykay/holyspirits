@@ -1,0 +1,1 @@
+// show current and past orders, generate a QR code to scan at store, show their store
