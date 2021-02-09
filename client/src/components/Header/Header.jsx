@@ -1,13 +1,14 @@
 import React from 'react';
+import './Header.css';
+import Dropdown from "../Dropdown";
 
 const Header = () => {
   return (
     <>
-      <h3>the header</h3>
-      <a href="/">store</a>
-      <a href="/account">account</a>
-      <a href="/checkout">checkout</a>
-      <a href="/admin">admin</a>
+      <div id="headDiv">
+        <h3>the header</h3>
+        <Dropdown />
+      </div>
     </>
   )
 };
