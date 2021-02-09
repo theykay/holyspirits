@@ -1,9 +1,12 @@
 import React from 'react';
+import "./Footer.css";
 
 const Footer = () => {
   return (
     <>
-    <h3>the footer</h3>
+      <footer>
+        <p id="footText">&#169; 2021 Holy Spirits</p>
+      </footer>
     </>
   )
 };
