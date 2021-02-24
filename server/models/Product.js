@@ -31,7 +31,12 @@ const productSchema = new Schema({
       // in entry form, force split dollars and cents, combine into
       // whole number just representing number of cents to store, 
       // then convert back when displaying
-      type: Number
+      dollars: {
+        type: Number
+      },
+      cents: {
+        type: Number
+      }
     }
   }],
   brand: {
