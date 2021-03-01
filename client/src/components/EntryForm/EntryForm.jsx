@@ -2,6 +2,40 @@ import React from 'react';
 import "./EntryForm.css";
 
 const EntryForm = () => {
+  const specifics = {
+    Wine: ["Red", "Pink", "White", "Champagne", "Sparkling", "Dessert", "Specialty", "Sake", "Spritzer", "Variety Pack"],
+    Beer: ["Ale", "IPA", "Lager", "Specialty/Alternatives", "Sour/Wild Ale", "Cider", "Stout", "Belgian-Style Ale", "Pale Ale", "Wheat Ale", "Pale Lager", "Pilsner", "Hard Seltzer", "Porter", "Golden/Blonde Ale", "Amber/Red Ale", "Seasonal", "Strong Ale", "Variety Pack", "Fruit", "Brown Ale", "Dark Lager", "Malt Liquor", "Kölsch", "Spice/Herb/Vegetable", "Amber/Vienna Lager", "Bock", "Hard Kombucha", "Cream Ale", "Hard Iced Tea", "Hard Soda", "Non-Alcoholic", "Hard Lemonade", "Perry", "Rye", "Smoked/Rauchbier", "Kellerbier/Zwickelbier", "California Common/Steam", "Chili", "Honey"],
+    Liquor: ["Whiskey", "Vodka", "Liqueur/Cordials/Schnapps", "Tequila", "Rum", "Ready-To-Drink", "Brandy", "Gin", "Mezcal", "Absinthe", "Soju", "Grain Alcohol", "Shochu", "Cachaça", "Non-Alcoholic Spirits"]
+  };
+
+  const showSpecific = (e) => {
+    console.log(e.target.value);
+    const category = e.target.value;
+    if (document.getElementById("entryCategorySpecific")) {
+      document.getElementById("entryCategorySpecific").remove();
+    }
+    
+    const dropdown = document.createElement("select");
+    dropdown.setAttribute("defaultValue", "select");
+    const defaultOption = document.createElement("option");
+    defaultOption.innerText = "select";
+    dropdown.appendChild(defaultOption);
+    dropdown.setAttribute("id", "entryCategorySpecific");
+    defaultOption.setAttribute("disabled", true);
+    
+    specifics[category].forEach((item) => {
+      const entry = document.createElement("option");
+      entry.setAttribute("value", item);
+      entry.innerText = item;
+      dropdown.appendChild(entry);
+    })
+    document.getElementById("categories").appendChild(dropdown);
+  };
+
+  const newOption = () => {
+
+  };
+
   return (
     <>
       <form>
@@ -16,17 +50,19 @@ const EntryForm = () => {
         <label htmlFor="entryABVDecimal">.</label>
         <input type="number" id="entryABVDecimal" min="0" max="9" step="1"></input>
         <br />
-        {/* General Category */}
-        <label htmlFor="entryCategoryGeneral">Category</label>
-        <input type="text" id="entryCategoryGeneral" list="categoriesGeneral" autoComplete="on"></input>
-        <datalist id="categoriesGeneral">
-          <option value="wine"></option>
-          <option value="beer"></option>
-          <option value="liquor"></option>
-        </datalist>
-        {/* specific category */}
+        <div id="categories">
+          {/* General Category */}
+          <label htmlFor="entryCategoryGeneral">Category</label>
+          <select id="entryCategoryGeneral" defaultValue="select" onChange={showSpecific}>
+            <option disabled={true} value="select">select</option>
+            <option value="Wine">Wine</option>
+            <option value="Beer">Beer</option>
+            <option value="Liquor">Liquor</option>
+          </select>
+          {/* specific category appended when general selected */}
+        </div>
         <label hidden={true} htmlFor="entryCategorySpecific">Specific Category</label>
-        <input type="text" id="entryCategorySpecific" hidden={true} list="" autoComplete="on"></input>
+        <input type="select" id="entryCategorySpecific" hidden={true} list="" autoComplete="on"></input>
         <datalist id="categoriesWine">
           <option value="Red"></option>
           <option value="Pink"></option>
@@ -99,10 +135,6 @@ const EntryForm = () => {
           <option value="Non-Alcoholic Spirits"></option>
         </datalist>
         <br />
-        {/* region */}
-        <label htmlFor="entryRegion">Region</label>
-        <input type="text" id="entryRegion"></input>
-        <br />
         {/* options - have option to add more entries */}
         {/* volume */}
         <label htmlFor="entryVolume">Volume</label>
@@ -115,9 +147,14 @@ const EntryForm = () => {
         <label htmlFor="entryCostCent"></label>
         <input type="number" min="0" max="99" id="entryCostCent"></input>
         <br />
+        <button onClick={newOption}>new option</button>
         {/* brand */}
         <label htmlFor="entryBrand">Brand</label>
         <input type="text" id="entryBrand"></input>
+        <br />
+        {/* region */}
+        <label htmlFor="entryRegion">Region</label>
+        <input type="text" id="entryRegion"></input>
         <br />
         {/* description */}
         <label htmlFor="entryDescription">Description</label>
