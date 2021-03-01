@@ -1,19 +1,37 @@
-input[type=text] {
-  /* background-color: lightpink; */
-  border: none;
-  border-bottom: 1px solid black;
+form {
+  text-align: left;
 }
 
-input[type=number] {
-  background-color: lightcyan;
+input {
+  /* background-color: lightcyan; */
   border: none;
+  border-bottom: 1px solid lightgrey;
 }
 
 select {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightgrey;
+}
+
+textarea {
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  resize: none;
 }
 
 *:focus {
   outline: none;
+  border-bottom: 1px solid black;
+}
+
+.removeBtn {
+  background-color: white;
+  border: 3px solid red;
+  color: red;
+  border-radius: 50%;
+}
+
+.removeBtn:hover {
+  background-color: red;
+  color: white;
 }
