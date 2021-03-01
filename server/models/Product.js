@@ -10,11 +10,21 @@ const productSchema = new Schema({
   },
   ABV: {
     // Alcohol By Volume
-    type: Number
+    whole: {
+      type: Number
+    },
+    decimal: {
+      type: Number
+    }
   },
   category: {
     // product category (use for breadcumb)
-    type: String
+    general: {
+      type: String
+    },
+    specific: {
+      type: String
+    }
   },
   region: {
     // region where made

@@ -1,0 +1,13 @@
+input[type=text] {
+  background-color: lightpink;
+  border: none;
+}
+
+input[type=number] {
+  background-color: lightcyan;
+  border: none;
+}
+
+*:focus {
+  outline: none;
+}
