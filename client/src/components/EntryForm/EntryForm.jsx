@@ -30,29 +30,31 @@ const EntryForm = () => {
     })
     document.getElementById("categories").appendChild(dropdown);
   };
-
-  const deleteEntry = (e) => {
-    // e.preventDefault();
-    console.log("hello");
-  }
   
   const newOption = (e) => {
     e.preventDefault();
     const parentDiv = document.getElementById("options");
     const childDiv = document.createElement("div");
     childDiv.setAttribute("class", "optionDiv");
-    const newLabel = document.createElement("label");
-    newLabel.innerText = "volume:";
-    childDiv.appendChild(newLabel);
-    const newText = document.createElement("input");
-    newText.setAttribute("type", "text");
-    newText.setAttribute("class", "option");
-    childDiv.appendChild(newText);
+    const newLabelVol = document.createElement("label");
+    newLabelVol.innerText = "volume:";
+    childDiv.appendChild(newLabelVol);
+    const newTextVol = document.createElement("input");
+    newTextVol.setAttribute("type", "text");
+    newTextVol.setAttribute("class", "option");
+    childDiv.appendChild(newTextVol);
+    const newLabelCost = document.createElement("label");
+    newLabelCost.innerText = "$";
+    childDiv.appendChild(newLabelCost);
+    const newTextCost = document.createElement("input");
+    newTextCost.setAttribute("type", "text");
+    newTextCost.setAttribute("class", "option");
+    childDiv.appendChild(newTextCost);
     const removeBtn = document.createElement("button");
     removeBtn.innerText = "-"
     removeBtn.setAttribute("class", "removeBtn");
     removeBtn.setAttribute("type", "button");
-    removeBtn.onClick = deleteEntry;
+    removeBtn.onclick = (e) => e.target.parentNode.remove();
     childDiv.appendChild(removeBtn);
     parentDiv.appendChild(childDiv);
   };
