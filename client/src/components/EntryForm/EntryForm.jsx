@@ -8,6 +8,11 @@ const EntryForm = () => {
     Liquor: ["Whiskey", "Vodka", "Liqueur/Cordials/Schnapps", "Tequila", "Rum", "Ready-To-Drink", "Brandy", "Gin", "Mezcal", "Absinthe", "Soju", "Grain Alcohol", "Shochu", "Cachaça", "Non-Alcoholic Spirits"]
   };
 
+  const saveAble = () => {
+    const svbtn = document.getElementById("svBtn");
+    svbtn.setAttribute("disabled", false);
+  }
+
   const showSpecific = (e) => {
     const category = e.target.value;
     if (document.getElementById("entryCategorySpecific")) {
@@ -28,6 +33,7 @@ const EntryForm = () => {
       entry.innerText = item;
       dropdown.appendChild(entry);
     })
+    dropdown.onchange = saveAble;
     document.getElementById("categories").appendChild(dropdown);
   };
   
@@ -59,9 +65,14 @@ const EntryForm = () => {
     parentDiv.appendChild(childDiv);
   };
 
+  const saveEntry = (e) => {
+    e.preventDefault();
+    console.log(e);
+  };
+
   return (
     <>
-      <form>
+      <form id="newEntry" onSubmit={saveEntry}>
         {/* name */}
         <label htmlFor="entryName">Name</label>
         <input type="text" id="entryName"></input>
@@ -110,6 +121,7 @@ const EntryForm = () => {
         {/* image */}
         <label htmlFor="entryImage">Image</label>
         <input type="text" id="entryImage"></input>
+        <button type="submit" id="svBtn" disabled={true}>save</button>
       </form>
     </>
   )
